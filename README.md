@@ -85,7 +85,7 @@ pip install customtkinter
 pip install requests
 
 **Запустіть головний файл:**
-python AxionHUB.pyw (качаєте якщо що в релізах версії 1.0.2 "Source code(.zip)" або "Source code(tar.gz)")
+python AxionHUB.pyw (качаєте якщо що в релізах "Source code(.zip)" або "Source code(tar.gz)")
 
 ## 🛠️ Збірка у .exe (для розробників) або авторські права, будьте людьми!!!
 Для комбіляції власної версії через Nuitka використовується команда:
