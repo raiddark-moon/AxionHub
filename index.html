@@ -8,7 +8,6 @@
     <link rel="icon" type="image/x-icon" href="red_icon.ico">
 
     <style>
-        /* --- ОСНОВНІ СТИЛІ --- */
         * {
             margin: 0;
             padding: 0;
@@ -29,34 +28,27 @@
             transition: color 0.3s ease;
         }
 
-        /* --- КЛЮЧОВІ КАДРИ АНІМАЦІЙ --- */
-
-        /* 1. Погодування бейджа */
         @keyframes floatBadge {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-6px); }
         }
 
-        /* 2. Рух стрілки на кнопці */
         @keyframes bounceArrow {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(4px); }
         }
 
-        /* 3. Легке сяйво рамок */
         @keyframes borderPulse {
             0%, 100% { border-color: #222; }
             50% { border-color: #ff4b2b; }
         }
 
-        /* 4. ТА САМА АНІМАЦІЯ ПЕРЕЛИВАННЯ НА КНОПЦІ (BUTTON SHINE) */
         @keyframes buttonShine {
             0% { left: -100%; }
             20% { left: 100%; }
             100% { left: 100%; }
         }
 
-        /* --- ШАПКА --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -95,7 +87,6 @@
             color: #ff4b2b;
         }
 
-        /* --- ГОЛОВНИЙ БАНЕР --- */
         .hero {
             display: flex;
             flex-direction: column;
@@ -136,7 +127,52 @@
             margin-bottom: 35px;
         }
 
-        /* --- КНОПКА З ТОЮ САМОЮ ЗАГРАВОЮ (SHINE) --- */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-download {
+            background-color: #ff4b2b;
+            color: #ffffff;
+            border: 1px solid #ff4b2b;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+        }
+
+        .btn-download::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: buttonShine 3s infinite ease-in-out;
+        }
+
+        .btn-download:hover {
+            background-color: #ff2200;
+            border-color: #ff2200;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 75, 43, 0.6);
+        }
+
         .btn-info {
             background-color: #151515;
             color: #ffffff;
@@ -154,7 +190,6 @@
             gap: 10px;
         }
 
-        /* Ефект переливання світла */
         .btn-info::after {
             content: '';
             position: absolute;
@@ -179,7 +214,6 @@
             box-shadow: 0 5px 15px rgba(255, 75, 43, 0.3);
         }
 
-        /* --- ЯК ЦЕ ПРАЦЮЄ --- */
         .how-it-works {
             padding: 70px 10%;
             background-color: #0d0d0d;
@@ -208,7 +242,6 @@
             margin-bottom: 10px;
         }
 
-        /* --- МОЖЛИВОСТІ --- */
         .features {
             padding: 80px 10%;
             background-color: #0a0a0a;
@@ -290,7 +323,6 @@
             transform: scale(1.05);
         }
 
-        /* --- ПІДВАЛ --- */
         footer {
             text-align: center;
             padding: 30px;
@@ -304,7 +336,7 @@
 <body>
 
     <header>
-        <div class="logo">AXIONHUB <span>v1.0 RED</span></div>
+        <div class="logo">AxionHUB <span>v1.0</span></div>
         <nav>
             <a href="#how">Як працює</a>
             <a href="#features">Можливості</a>
@@ -317,9 +349,15 @@
         <h1>Встановлюй софт у <span>один клік</span></h1>
         <p>AxionHUB — це ваш персональний помічник для швидкого розгортання системи. Забудьте про ручний пошук та завантаження інсталяторів через браузер.</p>
         
-        <a href="#how" class="btn-info">
-            Дізнатися більше <span>↓</span>
-        </a>
+        <div class="hero-buttons">
+            <a href="https://github.com/minecrafter457777/AxionHub/releases/download/v1.0.0/AxionHUB.exe" class="btn-download" download>
+                ⚡ Завантажити AxionHUB
+            </a>
+
+            <a href="#how" class="btn-info">
+                Дізнатися більше <span>↓</span>
+            </a>
+        </div>
     </section>
 
     <section class="how-it-works" id="how">
@@ -376,6 +414,8 @@
             <div class="tag">🎮 Heroic Games Launcher</div>
             <div class="tag">🚀 Steam</div>
             <div class="tag">🕹️ Game Jolt</div>
+            <div class="tag">📚 WinRAR</div>
+            <div class="tag">💬 Discord</div>
         </div>
     </section>
 
