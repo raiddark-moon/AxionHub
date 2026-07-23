@@ -12,13 +12,13 @@ import customtkinter as ctk
 import requests
 
 # Поточна версія додатка
-CURRENT_VERSION = "v1.0.2"
-GITHUB_REPO = "raiddark-moon/AxionHub"  # Твій username/repo
-SITE_URL = "https://raiddark-moon.github.io/AxionHub/"
+CURRENT_VERSION = "v1.1.0"
+GITHUB_REPO = "dinryx-hub/DinryX-HUB"  # Твій username/repo
+SITE_URL = "https://dinryx-hub.github.io/DinryX-HUB/"
 
 # Збереження конфігурації у папку AppData (чисто і без файлів біля .exe)
 APPDATA_DIR = os.path.join(
-    os.environ.get("APPDATA", os.path.expanduser("~")), "AxionHUB"
+    os.environ.get("APPDATA", os.path.expanduser("~")), "DinryX_HUB"
 )
 os.makedirs(APPDATA_DIR, exist_ok=True)
 CONFIG_FILE = os.path.join(APPDATA_DIR, "config.json")
@@ -187,8 +187,8 @@ PROGRAMS_LINUX = [
     {
         "name": "Steam",
         "desc": "Ігрова платформа №1.",
-        "url": "",
-        "file": "",
+        "url": "https://cdn.fastly.steamstatic.com/client/installer/steam.deb",
+        "file": "steam_latest.deb",
         "silent_args": "",
     },
     {
@@ -273,7 +273,7 @@ PROGRAMS = PROGRAMS_WINDOWS if CURRENT_OS == "Windows" else PROGRAMS_LINUX
 DOWNLOAD_DIR = "downloaded_installers"
 
 
-class AxionHUBApp(ctk.CTk):
+class DinryXHUBApp(ctk.CTk):
 
     def __init__(self):
         super().__init__()
@@ -284,8 +284,8 @@ class AxionHUBApp(ctk.CTk):
         ctk.set_appearance_mode(self.config_data.get("appearance_mode", "System"))
         ctk.set_default_color_theme("blue")
 
-        self.title("AxionHUB")
-        self.geometry("650x710")
+        self.title("DinryX HUB")
+        self.geometry("650x705")
         self.resizable(False, False)
 
         # Адаптивний фон для всього вікна (Light, Dark)
@@ -335,7 +335,7 @@ class AxionHUBApp(ctk.CTk):
 
         self.title_label = ctk.CTkLabel(
             header_frame,
-            text=f"AxionHUB Installer [{CURRENT_OS}]",
+            text=f"DinryX HUB Installer [{CURRENT_OS}]",
             font=ctk.CTkFont(family="Segoe UI", size=20, weight="bold"),
             text_color=self.current_main_color,
         )
@@ -592,7 +592,7 @@ class AxionHUBApp(ctk.CTk):
         self.accent_labels.append(lbl_desc_title)
 
         desc_text = (
-            f"AxionHUB — кросплатформений менеджер софту ({CURRENT_OS}).\n"
+            f"DinryX HUB — кросплатформений менеджер софту ({CURRENT_OS}).\n"
             "Автоматично скачує та встановлює офіційні інсталятори."
         )
         lbl_desc = ctk.CTkLabel(
@@ -614,7 +614,7 @@ class AxionHUBApp(ctk.CTk):
         self.accent_labels.append(lbl_author_title)
 
         author_text = (
-            "• Розробник: RAIDDARK / Axion Team\n"
+            "• Розробник: RAIDDARK / DinryX Team\n"
             "• Версія додатка: " + CURRENT_VERSION + "\n"
             "• Платформа: CustomTkinter / Nuitka"
         )
@@ -826,12 +826,12 @@ class AxionHUBApp(ctk.CTk):
                     pass
 
         self.update_status("Усі завдання виконано!", 1.0)
-        messagebox.showinfo("AxionHUB", "Процес успішно завершено!")
+        messagebox.showinfo("DinryX HUB", "Процес успішно завершено!")
         self.btn_start.configure(
             state="normal", fg_color=self.current_main_color
         )
 
 
 if __name__ == "__main__":
-    app = AxionHUBApp()
+    app = DinryXHUBApp()
     app.mainloop()
